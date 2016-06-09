@@ -21,6 +21,9 @@
 #else
     NSLog(@"yellow");
 #endif
+#ifdef BLUE
+    NSLog(@"blue");
+#endif
     // Override point for customization after application launch.
     return YES;
 }

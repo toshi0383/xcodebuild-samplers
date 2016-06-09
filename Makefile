@@ -13,14 +13,18 @@ clean:
 # Xcode7でビルドする場合はこちら
 # -exportOptionsPlistが必須になっている.
 # GCC_PREPROCESSOR_DEFINITIONSはxcconfigに書くのでもok.
-#        -xcconfig ./config/config.xcconfig \
+#		GCC_PREPROCESSOR_DEFINITIONS="$(inherited) HELLO=1" \
+# MacroCLIBuildTest.xcodeproj/project.pbxprojの設定を
+# 引き継ぎたい場合は、
+# xcconfigに書いて$(inherited) を指定する形にすること。
+# 直接xcodebuildの引数として渡す形だと上書きされてしまう。
 
 dev7: clean
 	./check-xcode-version.sh 7
 	xcodebuild -destination "generic/platform=iOS" \
 		-scheme MacroCLIBuildTest \
 		-configuration Release \
-		GCC_PREPROCESSOR_DEFINITIONS="HELLO=1" \
+		-xcconfig ./config/config.xcconfig \
 		PROVISIONING_PROFILE=$(PROVISIONING) \
 		-archivePath $(ARCHIVE_PATH) \
 		archive | xcpretty --color
