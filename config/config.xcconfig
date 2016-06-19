@@ -1,2 +1,3 @@
+#include "other.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) HELLO=1
 

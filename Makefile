@@ -26,6 +26,7 @@ dev7: clean
 		-configuration Release \
 		-xcconfig ./config/config.xcconfig \
 		PROVISIONING_PROFILE=$(PROVISIONING) \
+		GCC_PREPROCESSOR_DEFINITIONS="HELLO=0" \
 		-archivePath $(ARCHIVE_PATH) \
 		archive | xcpretty --color
 

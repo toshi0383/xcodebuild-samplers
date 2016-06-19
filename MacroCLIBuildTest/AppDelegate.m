@@ -16,14 +16,22 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-#ifdef HELLO
+#if HELLO
     NSLog(@"hello");
 #else
     NSLog(@"yellow");
 #endif
-#ifdef BLUE
+#if BLUE
     NSLog(@"blue");
+#else
+    NSLog(@"green");
 #endif
+#if BROWN
+    NSLog(@"brown");
+#else
+    NSLog(@"gray");
+#endif
+
     // Override point for customization after application launch.
     return YES;
 }
